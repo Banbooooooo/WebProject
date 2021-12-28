@@ -1,0 +1,25 @@
+<!-- 右边栏 -->
+
+<div class="jumbotron color">
+    <div class="display-5">当前已报名课程(<span id="c1">${onlineUserCourse.size()}</span>门)</div>
+    <hr class="my-4">
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="row">序号</th>
+                    <th scope="row">课程名</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach items="${onlineUserCourse}" var="course" varStatus="i">
+                    <tr>
+                        <th scope="row">${i.count}</th>
+                        <td>${course.course_name}</td>
+                </c:forEach>
+            </tbody>
+        </table>
+        <hr class="my-4">
+        <a class="btn btn-outline-primary" id="btn1" href="LoginAction">刷新</a>
+    </div>
+</div>
