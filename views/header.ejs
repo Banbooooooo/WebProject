@@ -2,7 +2,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light color">
     <a class="navbar-brand" href="#">
-        <img src="images/loge.JPG" width="30" height="30" class="d-inline-block align-top" alt="">
+        <img src="loge.JPG" width="30" height="30" class="d-inline-block align-top" alt="">
         培训课程报名系统</a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -14,13 +14,13 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    ${username==null?'未登录':username} </a>
+                    <%= username%></a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="MyInfo">我的信息</a>
-                    <a class="dropdown-item" href="/loginorreg.html">我的课表</a>
+                    <a class="dropdown-item" href="">我的课表</a>
                     <a class="dropdown-item" href="updatepwd.jsp">修改密码</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item"  href="/loginorreg.html">登录/注册</a>
+                    <a class="dropdown-item"  href="/loginorreg">登录/注册</a>
                     <a class="dropdown-item" href="Logout">注销</a>
                 </div>
             </li>

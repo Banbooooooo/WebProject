@@ -13,12 +13,10 @@
 
 <body>
     <div class="container">
-        <div id="header"></div>
-        <script>$("#header").load("/header.html")</script>
+        <div id="header"><%- include('header.ejs')%></div>
         <div class="row" style="margin-top: 10px">
 
-            <div id="left" class="col-lg-2"></div>
-            <script>$("#left").load("/left.html")</script>
+            <div id="left" class="col-lg-2"><%- include('left.ejs')%></div>
             <!-- 内容 -->
 
 
@@ -71,8 +69,7 @@
                 </div>
             </div>
 
-            <div id="right" class="col-lg-3"></div>
-            <script>$("#right").load("/right.html")</script>
+            <div id="right" class="col-lg-3"><%- include('right.ejs')%></div>
         </div>
     </div>
 </body>

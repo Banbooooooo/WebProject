@@ -1,35 +1,31 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="utf-8">
-<title>登录 /注册</title>
-<link rel="stylesheet" href="/bootstrap.css">
-    <link rel="stylesheet" href="/style.css">
-    <script src="/jquery-3.0.0.min.js"></script>
-    <script src="/popper.min.js"></script>
-    <script src="/bootstrap.js"></script>
-<script
-	src="https://cdn.staticfile.org/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+	<meta charset="utf-8">
+	<title>登录 /注册</title>
+	<link rel="stylesheet" href="bootstrap.css">
+	<link rel="stylesheet" href="style.css">
+	<script src="jquery-3.0.0.min.js"></script>
+	<script src="popper.min.js"></script>
+	<script src="bootstrap.js"></script>
+
+	<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 </head>
 
 <body>
 	<div class="container">
 
-		<div id="header"></div>
-        <script>$("#header").load("/header.html")</script>
+		<div id="header"><%- include('header.ejs')%></div>
 
 		<!-- 内容 -->
 		<div class="row" style="margin-top: 10px">
 
-			<div id="left" class="col-lg-2"></div>
-            <script>$("#left").load("/left.html")</script>
-			<div class="col-lg-7"
-				style="background-color: #e3f2fd; text-align: center;">
+			<div id="left" class="col-lg-2"><%- include('left.ejs')%></div>
+			<div class="col-lg-7" style="background-color: #e3f2fd; text-align: center;">
 				<div class="function-group">
 					<div class="function-menu nav">
-						<div id="login-btn" class="menu-item green"
-							style="margin-left: 15rem;">登录</div>
+						<div id="login-btn" class="menu-item green" style="margin-left: 15rem;">登录</div>
 						<div class="menu-item" id="reg-btn">注册</div>
 
 					</div>
@@ -39,36 +35,23 @@
 						<div class="card col-lg-12" id="login">
 
 							<div class="card-body ">
-								<form action="LoginAction">
-									<p style="color: red">${info}</p>
+								<form action="/login" method="POST">
+
 									<div class="form-group row">
-										<label for="inputPassword" class="col-sm-3 col-form-label">姓名</label>
+										<label for="inputPassword" class="col-sm-3 col-form-label">用户名</label>
 										<div class="col-sm-8">
 											<input type="text" class="form-control" id="inputPassword3"
-												required="required" placeholder="${username}"
-												name="username">
+												required="required" placeholder="${username}" name="name">
 										</div>
 									</div>
 									<div class="form-group row">
-										<label for="inputPassword" class="col-sm-3 col-form-label">学号</label>
+										<label for="inputPassword" class="col-sm-3 col-form-label">密码</label>
 										<div class="col-sm-8">
-											<input type="password" class="form-control"
-												id="inputPassword3" required="required"
-												placeholder="${password}" name="password">
+											<input type="password" class="form-control" id="inputPassword3"
+												required="required" placeholder="${password}" name="password">
 										</div>
 									</div>
 
-									<div class="form-group row">
-										<label for="inputPassword" class="col-sm-3 col-form-label">校验码</label>
-										<div class="col-sm-4">
-											<input type="text" class="form-control" id="inputword"
-												placeholder="${code}" name="code">
-										</div>
-										<div class="col-sm-4">
-											<img src="VerCode"
-												onclick="this.src='VerCode?'+Math.random()">
-										</div>
-									</div>
 
 									<div class="form-group" style="text-align: center;">
 
@@ -84,24 +67,21 @@
 						<div class="card col-lg-12" id="reg">
 							<div class="card-body">
 
-								<form method="post" action="RegAction"
-									enctype="multipart/form-data">
-									
+								<form action="/reg" method="POST">
+
 									<div class="form-group row">
-										<label for="inputEmail3" class="col-sm-2 col-form-label">姓名</label>
+										<label for="inputEmail3" class="col-sm-2 col-form-label">用户名</label>
 										<div class="col-sm-8">
 											<input type="text" class="form-control" id="inputEmail3"
-												placeholder="Username" name="name" required
-												>
+												placeholder="Username" name="name" required>
 										</div>
 									</div>
 
 									<div class="form-group row">
-										<label for="inputPassword3" class="col-sm-2 col-form-label">学号</label>
+										<label for="inputPassword3" class="col-sm-2 col-form-label">密码</label>
 										<div class="col-sm-8">
-											<input type="password" class="form-control"
-												id="inputPassword3" required="required"
-												placeholder="Password" name="id">
+											<input type="password" class="form-control" id="inputPassword3"
+												required="required" placeholder="Password" name="password">
 										</div>
 									</div>
 
@@ -110,18 +90,16 @@
 										<div class="col-sm-1">
 											<div class="form-check form-check-inline">
 
-												<input class="form-check-input" type="radio" name="sex"
-													id="sex1" value="男"> <label
-													class="form-check-label" for="sex1">男</label>
+												<input class="form-check-input" type="radio" name="sex" id="sex1"
+													value="男"> <label class="form-check-label" for="sex1">男</label>
 
 											</div>
 										</div>
 										<div class="col-sm-1">
 
 											<div class="form-check form-check-inline">
-												<input class="form-check-input" type="radio" name="sex"
-													id="sex2" value="女"> <label
-													class="form-check-label" for="sex2">女</label>
+												<input class="form-check-input" type="radio" name="sex" id="sex2"
+													value="女"> <label class="form-check-label" for="sex2">女</label>
 											</div>
 
 										</div>
@@ -131,24 +109,24 @@
 										<label for="inputPassword3" class="col-sm-2 col-form-label">出生年月</label>
 										<div class="col-sm-5">
 
-											<input class="form-control" type="date" name="birth"
-												id="inputPassword3" value="1980-01-01" placeholder="生日">
+											<input class="form-control" type="date" name="birth" id="inputPassword3"
+												value="1980-01-01" placeholder="生日">
 
 										</div>
 									</div>
-								
+
 									<div class="form-group row">
-									
+
 										<label for="inputPassword3" class="col-sm-2 col-form-label">院系</label>
 										<div class="col-sm-4">
 											<select class="form-control" name="department">
-											
+
 												<option value="2018级">2018级</option>
 												<option value="2019级">2019级</option>
 												<option value="2020级">2020级</option>
 												<option value="2021级">2021级</option>
-												
-												
+
+
 											</select>
 
 										</div>
@@ -176,33 +154,32 @@
 							</div>
 						</div>
 					</div>
-                </div>
 				</div>
-                <div id="right" class="col-lg-3"></div>
-                <script>$("#right").load("/right.html")</script>
 			</div>
-	
+			<div id="right" class="col-lg-3"><%- include('right.ejs')%></div>
+		</div>
+
 	</div>
 
 </body>
 <script type="text/javascript">
-	$(document).ready(function() {
+	$(document).ready(function () {
 		$("#login").show();
 		$("#reg").hide();
-		$("#login-btn").click(function() {
+		$("#login-btn").click(function () {
 			$("#login-btn").attr("class", "menu-item green");
 			$("#reg-btn").attr("class", "menu-item");
 			$("#login").show();
 			$("#reg").hide();
 		});
-		$("#reg-btn").click(function() {
+		$("#reg-btn").click(function () {
 			$("#login-btn").attr("class", "menu-item");
 			$("#reg-btn").attr("class", "menu-item green");
 			$("#login").hide();
 			$("#reg").show();
 		});
 	});
-	
+
 </script>
 
 </html>
